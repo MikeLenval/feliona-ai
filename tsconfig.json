@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    // TypeScript 5.8.3 современные настройки
+    "target": "ES2022",
+    "lib": ["dom", "es2022", "webworker"],
+    "types": ["node", "webxr", "@types/three"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -12,16 +14,90 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "jsxImportSource": "react",
     "incremental": true,
+    "declaration": false,
+
+    // Next.js App Router поддержка
     "plugins": [
       {
         "name": "next"
       }
     ],
+
+    // Строгие проверки для enterprise-level качества
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "exactOptionalPropertyTypes": true,
+    "useUnknownInCatchVariables": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": false,
+    "noUncheckedSideEffectImports": true,
+    "verbatimModuleSyntax": true,
+    "alwaysStrict": true,
+
+    // Производительность
+    "skipDefaultLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Пути для абсолютных импортов
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"],
+      "@/globals": ["types/globals"],
+      "@/types/*": ["types/*"],
+      "@types/*": ["types/*"],
+      "@/components/*": ["src/app/components/*"],
+      "@/lib/*": ["src/lib/*"],
+      "@/utils/*": ["src/utils/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/stores/*": ["src/stores/*"],
+      "@/styles/*": ["src/styles/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/app/*": ["src/app/*"],
+      "@/api/*": ["src/app/api/*"],
+      "@/config/*": ["src/config/*"],
+      "@/constants/*": ["src/constants/*"],
+      "@/providers/*": ["src/providers/*"],
+      "@/3d/*": ["src/3d/*"],
+      "@/ai/*": ["src/ai/*"],
+      "@/storybook/*": ["src/storybook/*"],
+      "@/prisma": ["src/lib/prisma"],
+      "@/middleware/*": ["src/middleware/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+
+  // Включаемые файлы
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "types/**/*.ts",
+    "types/**/*.d.ts",
+    ".next/types/**/*.ts",
+    "prisma/**/*",
+    "tests/**/*",
+    "e2e/**/*",
+    "next.config.ts"
+  ],
+
+  // Исключаемые файлы и директории
+  "exclude": [
+    "node_modules",
+    ".next",
+    "out",
+    "dist",
+    "build",
+    "coverage",
+    "storybook-static"
+  ]
 }

@@ -1,0 +1,130 @@
+.
+├── .env.example
+├── .env.local
+├── .gitignore
+├── .husky
+│   └── _
+│       ├── .gitignore
+│       ├── applypatch-msg
+│       ├── commit-msg
+│       ├── h
+│       ├── husky.sh
+│       ├── post-applypatch
+│       ├── post-checkout
+│       ├── post-commit
+│       ├── post-merge
+│       ├── post-rewrite
+│       ├── pre-applypatch
+│       ├── pre-auto-gc
+│       ├── pre-commit
+│       ├── pre-merge-commit
+│       ├── pre-push
+│       ├── pre-rebase
+│       └── prepare-commit-msg
+├── .storybook
+├── docs
+│   └── prompt
+├── eslint.config.mjs
+├── middleware.ts
+├── next-env.d.ts
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── project_structure.txt
+├── public
+│   ├── audio
+│   │   └── voices
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── models
+│   │   └── vrm
+│   │       ├── animations
+│   │       └── optimized
+│   ├── next.svg
+│   ├── vercel.svg
+│   └── window.svg
+├── README.md
+├── scripts
+│   ├── ai-setup
+│   └── vrm
+├── src
+│   ├── app
+│   │   ├── (app)
+│   │   │   ├── [locale]
+│   │   │   │   ├── chat
+│   │   │   │   │   └── [id]
+│   │   │   │   │       └── page.tsx
+│   │   │   │   ├── companions
+│   │   │   │   │   ├── [companionId]
+│   │   │   │   │   │   └── page.tsx
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── dashboard
+│   │   │   │   │   └── page.tsx
+│   │   │   │   ├── page.tsx
+│   │   │   │   └── settings
+│   │   │   │       └── page.tsx
+│   │   │   └── layout.tsx
+│   │   ├── (auth)
+│   │   │   └── layout.tsx
+│   │   ├── (public)
+│   │   │   └── [locale]
+│   │   │       ├── AgeVerificationWrapper.tsx
+│   │   │       ├── layout.tsx
+│   │   │       └── page.tsx
+│   │   ├── api
+│   │   │   └── analytics
+│   │   │       └── route.ts
+│   │   ├── components
+│   │   │   ├── AgeGate.tsx
+│   │   │   ├── Characters.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   ├── Header.tsx
+│   │   │   └── Hero.tsx
+│   │   ├── contexts
+│   │   │   └── ChatContext.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── hooks
+│   │   │   ├── useIntersectionObserver.ts
+│   │   │   └── useNSFWMode.ts
+│   │   ├── layout.tsx
+│   │   ├── lib
+│   │   │   └── utils.ts
+│   │   ├── page.tsx
+│   │   └── types
+│   ├── config
+│   │   ├── ai
+│   │   │   └── companions.ts
+│   │   └── companions
+│   ├── shared
+│   │   └── lib
+│   │       └── utils
+│   │           ├── analytics.ts
+│   │           └── utils.ts
+│   └── types
+│       ├── ai
+│       │   ├── langgraph.ts
+│       │   └── mcp.ts
+│       ├── index.ts
+│       ├── platform
+│       │   ├── api.ts
+│       │   ├── auth.ts
+│       │   ├── events.ts
+│       │   └── state.ts
+│       ├── ui
+│       │   ├── companions.d.ts
+│       │   ├── forms.ts
+│       │   └── routing.ts
+│       └── vrm
+│           └── index.ts
+├── supabase
+│   ├── .branches
+│   │   └── _current_branch
+│   └── .temp
+│       └── cli-latest
+├── tsconfig.json
+└── types
+    └── supabase.ts
+
+51 directories, 77 files
