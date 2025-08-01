@@ -4,7 +4,7 @@ import type {
   ResponseStyle,
   CommunicationPrefs,
   McpTool,
-} from "../../../types";
+} from "../../types";
 
 type CompanionArchetype = EIC.CompanionType;
 

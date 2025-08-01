@@ -77,10 +77,24 @@
 │   │   │       └── route.ts
 │   │   ├── components
 │   │   │   ├── AgeGate.tsx
-│   │   │   ├── Characters.tsx
-│   │   │   ├── Footer.tsx
-│   │   │   ├── Header.tsx
-│   │   │   └── Hero.tsx
+│   │   │   ├── features
+│   │   │   │   ├── Characters.tsx
+│   │   │   │   ├── Hero.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   ├── PricingSection.tsx
+│   │   │   │   └── RelationshipLevels.tsx
+│   │   │   ├── index.ts
+│   │   │   ├── layout
+│   │   │   │   ├── Footer.tsx
+│   │   │   │   ├── Header.tsx
+│   │   │   │   ├── index.ts
+│   │   │   │   └── MobileMenu.tsx
+│   │   │   └── ui
+│   │   │       ├── Button.tsx
+│   │   │       ├── Card.tsx
+│   │   │       ├── index.ts
+│   │   │       ├── Input.tsx
+│   │   │       └── Modal.tsx
 │   │   ├── contexts
 │   │   │   └── ChatContext.tsx
 │   │   ├── favicon.ico
@@ -105,17 +119,40 @@
 │   └── types
 │       ├── ai
 │       │   ├── langgraph.ts
-│       │   └── mcp.ts
+│       │   ├── mcp.ts
+│       │   ├── models.ts
+│       │   ├── msp.ts
+│       │   └── streaming.ts
+│       ├── assets
+│       │   ├── 3d.ts
+│       │   ├── ai-assets.ts
+│       │   ├── documents.ts
+│       │   └── media.ts
+│       ├── assets.d.ts
+│       ├── core
+│       │   ├── companions.ts
+│       │   ├── emotions.ts
+│       │   ├── memory.ts
+│       │   └── relationships.ts
+│       ├── globals.d.ts
 │       ├── index.ts
 │       ├── platform
 │       │   ├── api.ts
 │       │   ├── auth.ts
 │       │   ├── events.ts
 │       │   └── state.ts
+│       ├── types.ts
 │       ├── ui
 │       │   ├── companions.d.ts
-│       │   ├── forms.ts
-│       │   └── routing.ts
+│       │   ├── components.ts
+│       │   ├── constants.ts
+│       │   ├── index.ts
+│       │   ├── interactions.ts
+│       │   └── themes.ts
+│       ├── utils
+│       │   ├── constants.ts
+│       │   ├── factories.ts
+│       │   └── validation.ts
 │       └── vrm
 │           └── index.ts
 ├── supabase
@@ -123,8 +160,10 @@
 │   │   └── _current_branch
 │   └── .temp
 │       └── cli-latest
+├── tailwind.config.ts
 ├── tsconfig.json
+├── tsconfig.tsbuildinfo
 └── types
     └── supabase.ts
 
-51 directories, 77 files
+57 directories, 110 files

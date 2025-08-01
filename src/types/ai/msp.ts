@@ -3,7 +3,7 @@
  * 🎯 Только то, что РЕАЛЬНО нужно для MCP интеграции
  */
 
-import type { EIC } from '../globals';
+import type { EIC } from '../../../types/globals';
 
 // === CORE MCP TYPES ===
 

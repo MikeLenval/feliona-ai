@@ -827,6 +827,7 @@
   /* === УТИЛИТЫ АНИМАЦИЙ === */
   .fade-in-up {
     animation: fadeInUp var(--duration-slow) var(--ease-smooth) forwards;
+    animation-delay: var(--animation-delay, 0ms);
   }
 
   .emotional-float {
