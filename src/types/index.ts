@@ -1,114 +1,130 @@
 /**
- * EIC Types - Essential Exports Only
- * 🎯 Только то, что РЕАЛЬНО используется в компонентах
+ * ============================================
+ * EIC - Unified Type Exports v5.0 (Enhanced)
+ * Централизованные реэкспорты для удобства использования
+ * 
+ * 🎯 Объединение всех модульных типов
+ * 🔄 Реэкспорты для удобства использования
+ * 🛡️ Type-safe константы и утилиты
+ * ⚡ Оптимизированная структура импортов
+ * ============================================
  */
 
-// === SINGLE SOURCE OF TRUTH ===
-import type { EIC } from './globals';
+// === CORE TYPES RE-EXPORTS ===
 
-// === EXPORT EIC NAMESPACE ===
-export type { EIC };
+// Base Types
+export type * from './base';
 
-// === CORE TYPES (что реально используется в UI) ===
-export type EmotionType = EIC.EmotionType;
-export type CompanionType = EIC.CompanionType;
-export type RelationshipLevel = EIC.RelationshipLevel;
+// Core System Types
+export type * from './core/emotions';
+export type * from './core/companions';
+export type * from './core/relationships';
+export type * from './core/memory';
 
-// === MAIN INTERFACES (основные сущности) ===
-export type Character = EIC.Character;
-export type CompanionInstance = EIC.CompanionInstance;
-export type UserPreferences = EIC.UserPreferences;
-export type EmotionalState = EIC.EmotionalState;
+// AI System Types
+export type * from './ai/langgraph';
+export type * from './ai/mcp';
+export type * from './ai/models';
+export type * from './ai/streaming';
 
-// === UI TYPES (добавить этот блок) ===
-export type {
-  PersonalityTrait,
-  ResponseStyle,
-  CommunicationPrefs,
-  McpTool,
-} from './ui';
+// Platform Types (only non-empty files)
+export type * from './platform/events';
 
-// === AI ESSENTIALS (минимум для работы) ===
-export interface AIConfig {
-  provider: 'openai' | 'anthropic' | 'custom';
-  model: string;
-  apiKey?: string;
-  baseUrl?: string; // For custom
-  temperature: number;
-  maxTokens: number;
-}
+// UI Types
+export type * from './ui/components';
+export type * from './ui/themes';
+export type * from './ui/interactions';
+export type * from './ui/characters';
+export type * from './ui/pricing';
 
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  emotion?: EmotionType;
-  timestamp: Date;
-}
+// Utility Types
+export type * from './utils/validation';
+export type * from './utils/constants';
 
-export interface MemoryEntry {
-  id: string;
-  content: string;
-  emotion: EmotionType;
-  importance: number; // 0-1
-  timestamp: Date;
-}
+// VRM Types
+export type * from './vrm';
 
-// === VALIDATION (только essentials) ===
-const EMOTIONS = [
+// Global Extensions
+export type * from './globals';
+
+// === CONVENIENCE ALIASES ===
+
+// Core aliases for backward compatibility
+export type { EmotionType } from './core/emotions';
+export type { CompanionType } from './core/companions';
+export type { RelationshipLevel } from './core/relationships';
+export type { Character, CompanionInstance } from './core/companions';
+export type { MemoryEntry, ConversationMessage } from './core/memory';
+
+// Pricing types
+export type { PlanType } from './ui/pricing';
+
+// AI aliases
+export type { LangGraphRuntime, LangGraphConfig, LangGraphInstance } from './ai/langgraph';
+export type { MCPBridge, MCPConnection, MCPTool } from './ai/mcp';
+
+// VRM aliases
+export type { VRMExpression, VRMCompanionInstance, VRMManager } from './vrm';
+
+// === TYPE-SAFE CONSTANTS ===
+
+/**
+ * Emotion type values for runtime validation
+ */
+export const EMOTION_VALUES = [
   'warmth', 'trust', 'wisdom', 'mystery', 'joy', 'calm',
   'curiosity', 'empathy', 'excitement', 'melancholy', 'love', 'serenity'
 ] as const;
 
-export function isValidEmotion(value: unknown): value is EmotionType {
-  return typeof value === 'string' && EMOTIONS.includes(value as EmotionType);
-}
-
-// === FACTORIES (только самые нужные) ===
-export function createMessage(
-  role: 'user' | 'assistant',
-  content: string,
-  emotion?: EmotionType
-): ChatMessage {
-  const message: ChatMessage = {
-    id: crypto.randomUUID(),
-    role,
-    content,
-    timestamp: new Date()
-  };
-  
-  // Добавляем emotion только если оно определено
-  if (emotion !== undefined) {
-    message.emotion = emotion;
-  }
-  
-  return message;
-}
-
-export function createMemory(
-  content: string,
-  emotion: EmotionType,
-  importance = 0.5
-): MemoryEntry {
-  return {
-    id: crypto.randomUUID(),
-    content,
-    emotion,
-    importance: Math.max(0, Math.min(1, importance)),
-    timestamp: new Date()
-  };
-}
-
-// === DEFAULTS ===
-export const DEFAULT_EMOTION: EmotionType = 'warmth';
-export const DEFAULT_AI_CONFIG: AIConfig = {
-  provider: 'openai',
-  model: 'gpt-4o-mini',
-  temperature: 0.7,
-  maxTokens: 1000
-};
-
-/*
- * Всё что РЕАЛЬНО нужно для работы приложения.
- * Остальное - over-engineering.
+/**
+ * Companion type values for runtime validation
  */
+export const COMPANION_TYPE_VALUES = [
+  'caring-friend', 'playful-spark', 'wise-muse', 'passionate-soul',
+  'elven-sage', 'neko-girl', 'guardian-angel', 'seductive-demoness'
+] as const;
+
+/**
+ * Relationship level values for runtime validation
+ */
+export const RELATIONSHIP_LEVEL_VALUES = [
+  'stranger', 'acquaintance', 'friendship', 'close-bond'
+] as const;
+
+/**
+ * VRM expression values for runtime validation
+ */
+export const VRM_EXPRESSION_VALUES = [
+  'happy', 'sad', 'angry', 'surprised', 'relaxed', 'blink', 'neutral',
+  'aa', 'ih', 'ou', 'ee', 'oh'
+] as const;
+
+// === VALIDATION HELPERS ===
+
+/**
+ * Type guard for EmotionType
+ */
+export function isEmotionType(value: unknown): value is import('./core/emotions').EmotionType {
+  return typeof value === 'string' && (EMOTION_VALUES as readonly string[]).includes(value);
+}
+
+/**
+ * Type guard for CompanionType
+ */
+export function isCompanionType(value: unknown): value is import('./core/companions').CompanionType {
+  return typeof value === 'string' && (COMPANION_TYPE_VALUES as readonly string[]).includes(value);
+}
+
+/**
+ * Type guard for RelationshipLevel
+ */
+export function isRelationshipLevel(value: unknown): value is import('./core/relationships').RelationshipLevel {
+  return typeof value === 'string' && (RELATIONSHIP_LEVEL_VALUES as readonly string[]).includes(value);
+}
+
+/**
+ * Type guard for VRM Expression
+ */
+export function isVRMExpression(value: unknown): value is import('./vrm').VRMExpression {
+  return typeof value === 'string' && (VRM_EXPRESSION_VALUES as readonly string[]).includes(value);
+}

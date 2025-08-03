@@ -1,6 +1,12 @@
 .
 ├── .env.example
 ├── .env.local
+├── .github
+│   ├── copilot-instructions-eic.md
+│   ├── copilot-instructions.md
+│   └── instructions
+│       └── prompts
+│           └── copilot-instructions-prompts.md
 ├── .gitignore
 ├── .husky
 │   └── _
@@ -23,7 +29,8 @@
 │       └── prepare-commit-msg
 ├── .storybook
 ├── docs
-│   └── prompt
+│   ├── TYPE_SYSTEM_OVERVIEW.md
+│   └── TYPE_SYSTEM_SUMMARY.md
 ├── eslint.config.mjs
 ├── middleware.ts
 ├── next-env.d.ts
@@ -110,51 +117,73 @@
 │   ├── config
 │   │   ├── ai
 │   │   │   └── companions.ts
-│   │   └── companions
+│   │   ├── companions
+│   │   ├── pricing.ts
+│   │   └── relationships.ts
 │   ├── shared
 │   │   └── lib
 │   │       └── utils
 │   │           ├── analytics.ts
+│   │           ├── pricing-analytics.ts
+│   │           ├── relationship-analytics.ts
 │   │           └── utils.ts
 │   └── types
 │       ├── ai
+│       │   ├── langgraph-enhanced.ts
+│       │   ├── langgraph-new.ts
 │       │   ├── langgraph.ts
+│       │   ├── mcp-enhanced.ts
 │       │   ├── mcp.ts
 │       │   ├── models.ts
-│       │   ├── msp.ts
 │       │   └── streaming.ts
 │       ├── assets
 │       │   ├── 3d.ts
 │       │   ├── ai-assets.ts
 │       │   ├── documents.ts
+│       │   ├── media.d.ts
 │       │   └── media.ts
 │       ├── assets.d.ts
+│       ├── base.ts
 │       ├── core
 │       │   ├── companions.ts
 │       │   ├── emotions.ts
 │       │   ├── memory.ts
 │       │   └── relationships.ts
 │       ├── globals.d.ts
+│       ├── globals.ts
+│       ├── index-backup.ts
+│       ├── index-enhanced.ts
+│       ├── index-new.ts
 │       ├── index.ts
 │       ├── platform
+│       │   ├── analytics.ts
 │       │   ├── api.ts
 │       │   ├── auth.ts
+│       │   ├── core.ts
 │       │   ├── events.ts
+│       │   ├── performance.ts
 │       │   └── state.ts
+│       ├── README.md
+│       ├── TYPES_ANALYSIS_REPORT.md
+│       ├── types-new.ts
 │       ├── types.ts
 │       ├── ui
+│       │   ├── characters.ts
 │       │   ├── companions.d.ts
 │       │   ├── components.ts
 │       │   ├── constants.ts
 │       │   ├── index.ts
 │       │   ├── interactions.ts
+│       │   ├── pricing.ts
+│       │   ├── relationship-levels.ts
 │       │   └── themes.ts
 │       ├── utils
 │       │   ├── constants.ts
 │       │   ├── factories.ts
 │       │   └── validation.ts
 │       └── vrm
-│           └── index.ts
+│           ├── index.ts
+│           └── vrm-enhanced.ts
 ├── supabase
 │   ├── .branches
 │   │   └── _current_branch
@@ -166,4 +195,4 @@
 └── types
     └── supabase.ts
 
-57 directories, 110 files
+59 directories, 137 files

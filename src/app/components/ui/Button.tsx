@@ -1,6 +1,6 @@
 "use client";
 
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { cn } from "@/app/lib/utils";
 import type { ComponentPropsWithoutRef, ElementRef, ReactNode } from "react";
 
@@ -10,6 +10,7 @@ import type { ComponentPropsWithoutRef, ElementRef, ReactNode } from "react";
 export type ButtonVariant = 
   | "primary"           // Основная фиолетовая кнопка
   | "secondary"         // Прозрачная с border
+  | "outline"           // Обводка без заливки
   | "feliona"           // С glow эффектом и градиентом  
   | "pulse"             // С pulse анимацией
   | "cta-primary"       // Главные CTA кнопки
@@ -118,6 +119,14 @@ export const Button = forwardRef<ElementRef<"button">, ButtonProps>(
         "bg-[var(--secondary-color)] text-white font-medium",
         "border border-[var(--secondary-color)]",
         "hover:bg-opacity-80",
+        "active:bg-opacity-90"
+      ),
+
+      // Outline кнопка (только обводка)
+      outline: cn(
+        "bg-transparent text-[var(--primary-color)] font-medium",
+        "border border-[var(--primary-color)]",
+        "hover:bg-[var(--primary-color)] hover:text-white",
         "active:bg-opacity-90"
       ),
 

@@ -166,9 +166,10 @@ export const Modal = forwardRef<ElementRef<"div">, ModalProps>(
       };
 
       // ✅ FIX 2: Добавлен cleanup для focus trap событий
-      dialogRef.current.addEventListener("keydown", handleFocusTrap);
+      const currentDialog = dialogRef.current;
+      currentDialog.addEventListener("keydown", handleFocusTrap);
       return () => {
-        dialogRef.current?.removeEventListener("keydown", handleFocusTrap);
+        currentDialog?.removeEventListener("keydown", handleFocusTrap);
       };
     }, [isOpen]);
 
@@ -192,14 +193,14 @@ export const Modal = forwardRef<ElementRef<"div">, ModalProps>(
 
     // Body overflow control
     useEffect(() => {
-      if (isOpen) {
-        const originalOverflow = document.body.style.overflow;
-        document.body.style.overflow = "hidden";
-        
-        return () => {
-          document.body.style.overflow = originalOverflow;
-        };
-      }
+      if (!isOpen) return;
+
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      
+      return () => {
+        document.body.style.overflow = originalOverflow;
+      };
     }, [isOpen]);
 
     // Анимационные классы (CSS instead of framer-motion)

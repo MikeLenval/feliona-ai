@@ -1,12 +1,14 @@
 import type { 
-  EIC,
-  PersonalityTrait,
-  ResponseStyle,
-  CommunicationPrefs,
-  McpTool,
+  CompanionType,
 } from "../../types";
 
-type CompanionArchetype = EIC.CompanionType;
+type CompanionArchetype = CompanionType;
+
+// Временные типы для совместимости (упрощенные)
+type PersonalityTrait = string;
+type ResponseStyle = Record<string, string>;
+type CommunicationPrefs = Record<string, unknown>;
+type McpTool = string; // Упрощаем до строки
 
 // Базовая конфигурация AI системы
 export const AI_CONFIG = {

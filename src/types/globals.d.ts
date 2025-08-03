@@ -90,8 +90,8 @@ export interface EmotionalState {
 declare global {
   interface Window {
     EIC?: {
-      companions: readonly CompanionInstance[];
-      currentEmotion: EmotionType;
+      companions: readonly unknown[];
+      currentEmotion: string;
     };
   }
 }
@@ -148,6 +148,3 @@ export namespace EIC {
     readonly memoryRetention: 'session' | 'limited' | 'extended';
   }
 }
-
-// === INDIVIDUAL EXPORTS ===
-export type { EmotionType, CompanionType, RelationshipLevel };
